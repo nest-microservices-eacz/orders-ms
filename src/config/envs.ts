@@ -3,20 +3,12 @@ import * as Joi from 'joi';
 
 interface EnvVars {
   PORT: number;
-  PGPORT: number;
-  PGPASSWORD: string;
-  PGUSER: string;
-  PGDB: string;
   DATABASE_URL: string;
   NATS_SERVERS: string[];
 }
 
 const envsSchema = Joi.object({
   PORT: Joi.number().required(),
-  PGPORT: Joi.number().required(),
-  PGPASSWORD: Joi.string().required(),
-  PGUSER: Joi.string().required(),
-  PGDB: Joi.string().required(),
   DATABASE_URL: Joi.string().required(),
   NATS_SERVERS: Joi.array().items(Joi.string()).required(),
 }).unknown(true);
